@@ -26,4 +26,11 @@ const Header = ({ text }) => {
 Header.defaultProps = {
 	text: 'Feedback UI',
 }
+// checking the type of the props like this
+Header.prototype = {
+	text: PropTypes.string
+	// text: PropTypes.string.isRequired
+	// this is the same as the line above but with isRequired property, which mean that the prop is required
+}
+
 export default Header
