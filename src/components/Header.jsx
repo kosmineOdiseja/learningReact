@@ -4,13 +4,13 @@ import React from 'react'
 //  we can use ( props ) 
 // but we can use destructuring with curly braces { text }
 const Header = ({ text }) => {
-	const headerStyle = {
+	const headerStyles= {
 		backgroundColor: '#c41111',
 		color: 'red',
 	}	
 
 	return (
-		<header styles={headerStyle}> 
+		<header style={ headerStyles }> 
 			<div className='container'>
 				<h2>
 					{text} { /* we can use like this */ }
