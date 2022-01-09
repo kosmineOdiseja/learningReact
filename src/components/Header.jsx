@@ -5,14 +5,8 @@ import React from 'react'
 // but we can use destructuring with curly braces { text }
 const Header = ({ text }) => {
 	
-	const person = {
-		name: 'John',
-	}
-	person.age = 25;
-	console.log(person);
-
 	return (
-		<header> 
+		<header style={{ backgroundColor: 'blue', color: 'red'}}> 
 			<div className='container'>
 				<h2>
 					{text} { /* we can use like this */ }
@@ -27,8 +21,8 @@ Header.defaultProps = {
 	text: 'Feedback UI',
 }
 // checking the type of the props like this
-Header.prototype = {
-	text: PropTypes.string
+Header.PropType = {
+	text: PropTypes.string,
 	// text: PropTypes.string.isRequired
 	// this is the same as the line above but with isRequired property, which mean that the prop is required
 }
