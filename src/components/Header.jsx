@@ -5,8 +5,8 @@ import React from 'react'
 // but we can use destructuring with curly braces { text }
 const Header = ({ text }) => {
 	const headerStyles= {
-		backgroundColor: '#c41111',
-		color: 'red',
+		backgroundColor: '#444',
+		color: 'white',
 	}	
 
 	return (
