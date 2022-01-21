@@ -8,7 +8,9 @@ function FeedbackItem() {
  const [rating, setRating] = useState(8);
 const [ comment, setComment ] = useState('This is comment for the feedback using state hook');
 const handleClick = () => {
-	setRating(rating + 1);
+	setRating((prev) => {
+		return 1 + prev;
+	});
 }
   return (
 	  <div className='card'>	
