@@ -1,8 +1,10 @@
-import React from 'react'
-
-function Card({ children }) {
+// prop called children 
+function Card({ children, reverse }) {
   return (
-  <div className='card'>{children}</div>
+  // Why this is a div?
+  // that's the point which I don't get. 
+
+  <div className='card reverse' >{children}</div>
   )
 }
 

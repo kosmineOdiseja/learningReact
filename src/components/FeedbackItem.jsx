@@ -7,7 +7,7 @@ function FeedbackItem({ item }) {
  // [ first value is name of the state, second value is the function to update the state ]
 
   return (
-	  <Card>	
+	  <Card reverse={true}>	
 		<div className="num-display">{item.rating}</div>
 		<div className="text-display">{item.text}</div>
 	  </Card>
