@@ -4,7 +4,7 @@ function Card({ children, reverse }) {
   // Why this is a div?
   // that's the point which I don't get. 
 
-  <div className='card reverse' >{children}</div>
+  <div className={`card ${reverse && 'reverse'}`}>{children}</div>
   )
 }
 

@@ -1,3 +1,4 @@
+import {FaTimes} from 'react-icons/fa'
 import React from 'react';
 import Card from '../components/shared/Card.jsx';
 
@@ -7,7 +8,7 @@ function FeedbackItem({ item }) {
  // [ first value is name of the state, second value is the function to update the state ]
 
   return (
-	  <Card reverse={true}>	
+	  <Card>	
 		<div className="num-display">{item.rating}</div>
 		<div className="text-display">{item.text}</div>
 	  </Card>
