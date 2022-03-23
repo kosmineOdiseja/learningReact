@@ -22,6 +22,7 @@ function App() {
 			<FeedbackStats
 				feedback={feedback}
 			/>
+			<div> random </div>
 			 <FeedbackList
 				feedback={feedback}
 				handleDelete={deleteFeedback}
