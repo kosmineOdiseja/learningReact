@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header';
 import {  useState } from 'react';
 import FeedbackList from './components/FeedbackList';
+import FeedbackStats from './components/FeedbackStats';
 import FeedbackData from './data/FeedbackData';
 
 function App() {
@@ -17,12 +18,15 @@ function App() {
 		{/* we can call 'text' as we want */}
 		{ /* we can use dynamic props, but we need to remove: 'text="Hello World* and use only <Header/> */}
 		 <Header /> 
-		 <div>
+		 	<div className='container'>
+			<FeedbackStats
+				feedback={feedback}
+			/>
 			 <FeedbackList
 				feedback={feedback}
 				handleDelete={deleteFeedback}
-			/>
-		 </div>
+				/>
+			</div>
 		</>
 	);
 }

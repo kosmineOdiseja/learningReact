@@ -7,7 +7,7 @@ const FeedbackData = [
 		{
 			"id": 2,
 			"rating": 9,
-			"text": "lorum ipsum dolor sit amet",
+			"text": "lorum ipsum dolor sit amet kadjfladsjf akdsjf kj dksafjkdajdf kadjf akdjfalkdjf akjfdaklsdjfakdjfakdfj/",
 		},
 		{
 			"id": 3,
