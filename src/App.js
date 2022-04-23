@@ -3,9 +3,12 @@ import Header from './components/Header';
 import {  useState } from 'react';
 import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
+import FeedbackForm from './components/FeedbackForm';
 import FeedbackData from './data/FeedbackData';
+// import RatingSelect from './components/RatingSelect';
 
 function App() {
+
 	const [ feedback, setFeedback ] = useState(FeedbackData);
 
 	const deleteFeedback = (id) => {
@@ -17,19 +20,21 @@ function App() {
 		<>
 		{/* we can call 'text' as we want */}
 		{ /* we can use dynamic props, but we need to remove: 'text="Hello World* and use only <Header/> */}
-		 <Header /> 
-		 	<div className='container'>
-			<FeedbackStats
-				feedback={feedback}
-			/>
-			<div> random </div>
-			 <FeedbackList
-				feedback={feedback}
-				handleDelete={deleteFeedback}
+			<Header /> 
+			<div className='container'>
+				{/* <RatingSelect/>  */}
+				<FeedbackForm/>
+				<FeedbackStats
+					feedback={feedback}
+				/>
+				<FeedbackList
+					feedback={feedback}
+					handleDelete={deleteFeedback}
 				/>
 			</div>
 		</>
 	);
 }
 
-export default App;
+
+export default App
