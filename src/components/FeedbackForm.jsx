@@ -3,7 +3,8 @@ import Card  from '../components/shared/Card.jsx';
 import Button from '../components/shared/Button.jsx';
 import RatingSelect from './RatingSelect.jsx';
 
-const FeedbackForm = () => {
+
+const FeedbackForm = ({ handleAdd }) => {
 	  const [text, setText] = useState('');
 	  const [rating, setRating] = useState(10);
 	  const [btnDisabled, setBtnDisabled ] = useState(true);
@@ -23,9 +24,21 @@ const FeedbackForm = () => {
 		setText(e.target.value)
 	  }
 
+	  const handleSubmit = (e) => {
+		e.preventDefault()
+		if(text.trim().length > 10 ) {
+			const newFeedback = {
+				text, rating
+			}
+			handleAdd(newFeedback)
+			// console.log(newFeedback, 'newFeedback')
+			// how to clear the text field? 
+			setText('')
+		} 
+	 }
   return (
 		<Card>
-			<form> 
+			<form onSubmit={handleSubmit}> 
 				<h2> How would yuo rate your experience? </h2>
 				{/*  @todo - rating select component  */}
 				<RatingSelect select={(rating) => setRating(rating) }/>

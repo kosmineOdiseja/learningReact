@@ -5,6 +5,7 @@ import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackData from './data/FeedbackData';
+import { v4 as uuidv4 } from 'uuid';
 // import RatingSelect from './components/RatingSelect';
 
 function App() {
@@ -16,6 +17,12 @@ function App() {
 			setFeedback(feedback.filter((item) => item.id !== id));
 		}
 	}
+
+	const addFeedback = (newFeedback) => {
+		newFeedback.id = uuidv4();
+		// console.log(newFeedback, 'newFeedback');
+		setFeedback([...feedback, newFeedback]);
+	}
 	return (
 		<>
 		{/* we can call 'text' as we want */}
@@ -23,7 +30,7 @@ function App() {
 			<Header /> 
 			<div className='container'>
 				{/* <RatingSelect/>  */}
-				<FeedbackForm/>
+				<FeedbackForm handleAdd={addFeedback}/>
 				<FeedbackStats
 					feedback={feedback}
 				/>
