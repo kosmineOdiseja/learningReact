@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 // import propTypes from ''
 
 const Button = ({children, version, type, isDisabled }) => {
@@ -16,12 +17,12 @@ Button.defaultProps = {
 	isDisabled: false
 }
 
-// Button.propTypes = {
-// 	children: PropTypes.node.isRequired,
-// 	version: PropTypes.string,
-// 	type: PropTypes.string,
-// 	isDisabled: PropTypes.bool
-// } 
+Button.propTypes = {
+	children: PropTypes.node.isRequired,
+	version: PropTypes.string,
+	type: PropTypes.string,
+	isDisabled: PropTypes.bool
+} 
 
 
 export default Button

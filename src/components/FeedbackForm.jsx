@@ -5,6 +5,7 @@ import RatingSelect from './RatingSelect.jsx';
 
 const FeedbackForm = () => {
 	  const [text, setText] = useState('');
+	  const [rating, setRating] = useState(10);
 	  const [btnDisabled, setBtnDisabled ] = useState(true);
 	  const [message, setMessage ] = useState('');
 
@@ -27,7 +28,7 @@ const FeedbackForm = () => {
 			<form> 
 				<h2> How would yuo rate your experience? </h2>
 				{/*  @todo - rating select component  */}
-				<RatingSelect/>
+				<RatingSelect select={(rating) => setRating(rating) }/>
 				
 				<div className="input-group">
 					<input
@@ -39,7 +40,7 @@ const FeedbackForm = () => {
 					 
 					<Button type='submit' isDisabled={btnDisabled} > Send </Button>
 				</div>
-				{ message && <div classNeme='message'> { message } </div>}
+				{ message && <div className='message'> { message } </div>}
 			</form>
 		</Card>
 
