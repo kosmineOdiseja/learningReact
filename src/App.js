@@ -7,16 +7,14 @@ import FeedbackForm from './components/FeedbackForm';
 import FeedbackData from './data/FeedbackData';
 import { v4 as uuidv4 } from 'uuid';
 // import RatingSelect from './components/RatingSelect';
+import { context } from './context/FeedbackContext';
+import { FeedbackProvider } from './context/FeedbackContext';
 
 function App() {
 
 	const [ feedback, setFeedback ] = useState(FeedbackData);
 
-	const deleteFeedback = (id) => {
-		if(window.confirm('Are you sure you want to delete this feedback?')) {
-			setFeedback(feedback.filter((item) => item.id !== id));
-		}
-	}
+
 
 	const addFeedback = (newFeedback) => {
 		newFeedback.id = uuidv4();
@@ -24,7 +22,7 @@ function App() {
 		setFeedback([...feedback, newFeedback]);
 	}
 	return (
-		<>
+		<FeedbackProvider >
 		{/* we can call 'text' as we want */}
 		{ /* we can use dynamic props, but we need to remove: 'text="Hello World* and use only <Header/> */}
 			<Header /> 
@@ -35,11 +33,11 @@ function App() {
 					feedback={feedback}
 				/>
 				<FeedbackList
-					feedback={feedback}
-					handleDelete={deleteFeedback}
+					// feedback={feedback}
+					// handleDelete={deleteFeedback}
 				/>
 			</div>
-		</>
+			</FeedbackProvider >
 	);
 }
 

@@ -50,7 +50,6 @@ const FeedbackForm = ({ handleAdd }) => {
 						placeholder='Write a review'
 						value={text}
 					/>
-					 
 					<Button type='submit' isDisabled={btnDisabled} > Send </Button>
 				</div>
 				{ message && <div className='message'> { message } </div>}
