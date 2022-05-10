@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Card  from '../components/shared/Card.jsx';
 import Button from '../components/shared/Button.jsx';
 import RatingSelect from './RatingSelect.jsx';

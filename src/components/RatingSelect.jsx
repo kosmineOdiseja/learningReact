@@ -5,11 +5,6 @@ import FeedbackContext from '../context/FeedbackContext'
 function RatingSelect() {
 
   const { select } = useContext(FeedbackContext);
-  // NOTE: We don't need local state here as it's a duplicate of parent state
-  // also no real need for useEffect or context
-  // useEffect(() => {
-  //   select(feedbackEdit.item.rating)
-  // }, [feedbackEdit])
   const [selected, setSelected ] = useState(10)
 
   const handleChange = (e) => {
