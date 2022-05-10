@@ -1,41 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Card  from '../components/shared/Card.jsx';
 import Button from '../components/shared/Button.jsx';
 import RatingSelect from './RatingSelect.jsx';
+import FeedbackContext from '../context/FeedbackContext';
 
 
-const FeedbackForm = ({ handleAdd }) => {
-	  const [text, setText] = useState('');
-	  const [rating, setRating] = useState(10);
-	  const [btnDisabled, setBtnDisabled ] = useState(true);
-	  const [message, setMessage ] = useState('');
 
-	  const handleTextChange = (e) => {
-		  if (text === '') {
-			  setBtnDisabled(true);
-			  setMessage(null)
-		  } else if (text !== '' && text.trim().length <= 10 ) {
-			  setMessage('Text must be at least 10 characters Long!')
-			  setBtnDisabled(true)
-		  } else {
-			  setMessage(null)
-			  setBtnDisabled(false)
-		  }
-		setText(e.target.value)
-	  }
+const FeedbackForm = () => {
 
-	  const handleSubmit = (e) => {
-		e.preventDefault()
-		if(text.trim().length > 10 ) {
-			const newFeedback = {
-				text, rating
-			}
-			handleAdd(newFeedback)
-			// console.log(newFeedback, 'newFeedback')
-			// how to clear the text field? 
-			setText('')
-		} 
-	 }
+	const { 
+		 message, 
+		 text,
+		 handleTextChange,
+		 handleSubmit,
+		 setRating,
+		btnDisabled } = useContext(FeedbackContext);
   return (
 		<Card>
 			<form onSubmit={handleSubmit}> 
