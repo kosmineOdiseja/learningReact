@@ -79,6 +79,7 @@ const FeedbackContext = createContext()
 				addFeedback, 
 				setBtnDisabled,
 				handleSubmit,
+				handleTextChange,
 			}}
 		>
 			{children}

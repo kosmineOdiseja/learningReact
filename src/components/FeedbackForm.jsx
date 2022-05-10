@@ -14,7 +14,7 @@ const FeedbackForm = () => {
 		 handleTextChange,
 		 handleSubmit,
 		 setRating,
-		btnDisabled } = useContext(FeedbackContext);
+		 btnDisabled } = useContext(FeedbackContext);
   return (
 		<Card>
 			<form onSubmit={handleSubmit}> 
