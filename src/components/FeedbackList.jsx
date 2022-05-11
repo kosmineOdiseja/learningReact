@@ -6,8 +6,6 @@ import FeedbackContext from '../context/FeedbackContext';
 function FeedbackList() {
 
 	const {feedback}  = useContext(FeedbackContext);
-
-	console.log(feedback,' this is feedback from list using context');
 	// checking if the feedback is empty or we get the feedback
 	if (!feedback || feedback.length === 0 ) {
 		return <p> No FeedBack </p> 

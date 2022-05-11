@@ -1,9 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-// import propTypes from ''
+import React, { useContext } from 'react'
+import FeedbackContext from '../../context/FeedbackContext';
+import proptypes from 'prop-types';
 
-const Button = ({children, version, type, isDisabled }) => {
-	console.log(type, 'type');
+const Button = ({children, type, isDisabled, version   }) => {
 
   return (
 	<button type={type} disabled={isDisabled} className={`btn btn-${version}`}>
@@ -12,18 +11,18 @@ const Button = ({children, version, type, isDisabled }) => {
   )
 }
 
+
 Button.defaultProps = {
 	version: 'primary',
 	type: 'button',
 	isDisabled: false
 }
 
-Button.propTypes = {
-	children: PropTypes.node.isRequired,
-	version: PropTypes.string,
-	type: PropTypes.string,
-	isDisabled: PropTypes.bool
-} 
-
+// Button.propTypes = {
+// 	children: PropTypes.node.isRequired,
+// 	version: PropTypes.string,
+// 	type: PropTypes.string,
+// 	isDisabled: PropTypes.bool
+// } 
 
 export default Button

@@ -3,9 +3,9 @@ import React, { useContext } from 'react';
 import FeedbackContext from '../context/FeedbackContext.jsx';
 import Card from '../components/shared/Card.jsx';
 
-function FeedbackItem({ item, handleDelete }) {
+function FeedbackItem({ item }) {
 
-	const { deleteFeedback } = useContext(FeedbackContext);
+	const { deleteFeedback  } = useContext(FeedbackContext);
  // setting peace of state 
  // [ destructuring the array here of what the function returns ]
  // [ first value is name of the state, second value is the function to update the state ]

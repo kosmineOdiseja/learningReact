@@ -1,16 +1,15 @@
-import React, { useContext } from 'react'
-import { useState } from 'react'
-import FeedbackContext from '../context/FeedbackContext' 
+import React, { useState } from 'react'
 
-function RatingSelect() {
+function RatingSelect({ select }) {
 
-  const { select } = useContext(FeedbackContext);
   const [selected, setSelected ] = useState(10)
 
-  const handleChange = (e) => {
-			setSelected(+e.currentTarget.value)
-      select(+e.currentTarget.value)
-  }
+	const handleChange = (e) => {
+		setSelected(+e.currentTarget.value)
+		select(+e.currentTarget.value)
+		// selected(+e.currentTarget.value)
+	}
+
 
   // NOTE: simplified with iteration
   return (
