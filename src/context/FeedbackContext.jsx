@@ -21,8 +21,18 @@ const FeedbackContext = createContext()
 	const deleteFeedback = (id) => {
 		if(window.confirm('Are you sure you want to delete this feedback?')) {
 		setFeedback(feedback.filter((item) => item.id !== id));
+		}
 	}
+	// update the data 
+
+	const updateFeedback = (id, updItem ) => {
+
+		console.log(id, updItem,  'this is id and updItem');
+		setFeedback(feedback.map((item) => (item.id === id ? {...item, ...updItem } : item))
+		)
 	}
+
+
 	const addFeedback = (newFeedback) => {
 		newFeedback.id = uuidv4();
 		setFeedback([...feedback, newFeedback]);
@@ -43,6 +53,7 @@ const FeedbackContext = createContext()
 				deleteFeedback, 
 				addFeedback,
 				editFeedback, 
+				updateFeedback,
 			}}
 		>
 			{children}
