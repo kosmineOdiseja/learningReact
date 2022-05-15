@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react"
-import { v4 as uuidv4 } from 'uuid';
 // import feedbackData from '../data/FeedbackData'
 
 const FeedbackContext = createContext()
@@ -22,7 +21,7 @@ export const FeedbackProvider = ({ children }) => {
 	}, [])
 
 	const fetchFeedback = async () => {
-		const response = await fetch(`http://localhost:5000/feedback?_sort=id&_order=desc`)
+		const response = await fetch(`/feedback?_sort=id&_order=desc`)
 		// const response = await fetch('http://localhost:5000/feedback')
 		const data = await response.json()
 		// console.log(data, 'this is the data from the fetch')
@@ -31,23 +30,42 @@ export const FeedbackProvider = ({ children }) => {
 		// console.log(data, 'data from the fetch');
 	}
 
-	const deleteFeedback = (id) => {
+	const deleteFeedback = async (id) => {
 		if(window.confirm('Are you sure you want to delete this feedback?')) {
+			await fetch(`/feedback/${id}`, {
+				method: 'DELETE',
+			})
 		setFeedback(feedback.filter((item) => item.id !== id));
 		}
 	}
 	// update the data 
 
-	const updateFeedback = (id, updItem ) => {
-		console.log(id, updItem,  'this is id and updItem');
-		setFeedback(feedback.map((item) => (item.id === id ? {...item, ...updItem } : item))
+	const updateFeedback = async (id, updItem ) => {
+		const response = await fetch(`/feedback/${id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(updItem)
+		})
+		const data = await response.json()
+
+		setFeedback(feedback.map((item) => (item.id === id ? {...item, ...data } : item))
 		)
 	}
 
-	const addFeedback = (newFeedback) => {
-		newFeedback.id = uuidv4();
-		setFeedback([...feedback, newFeedback]);
+	const addFeedback = async (newFeedback) => {
+		const response = await fetch('/feedback', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(newFeedback)
+		})
+		const data = await response.json()
+		setFeedback([...feedback, data]);
 	}
+
   // Set item to be updated
   const editFeedback = (item) => {
     setFeedbackEdit({
