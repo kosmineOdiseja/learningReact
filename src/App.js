@@ -1,35 +1,27 @@
 import React from 'react'
 import Header from './components/Header';
-import {  useState } from 'react';
 import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
-import FeedbackData from './data/FeedbackData';
+import FeedbackForm from './components/FeedbackForm';
+import { FeedbackProvider } from './context/FeedbackContext';
 
 function App() {
-	const [ feedback, setFeedback ] = useState(FeedbackData);
 
-	const deleteFeedback = (id) => {
-		if(window.confirm('Are you sure you want to delete this feedback?')) {
-			setFeedback(feedback.filter((item) => item.id !== id));
-		}
-	}
 	return (
-		<>
+		<FeedbackProvider >
 		{/* we can call 'text' as we want */}
 		{ /* we can use dynamic props, but we need to remove: 'text="Hello World* and use only <Header/> */}
-		 <Header /> 
-		 	<div className='container'>
-			<FeedbackStats
-				feedback={feedback}
-			/>
-			<div> random </div>
-			 <FeedbackList
-				feedback={feedback}
-				handleDelete={deleteFeedback}
+			<Header /> 
+			<div className='container'>
+				<FeedbackForm />
+				<FeedbackStats
+				/>
+				<FeedbackList
 				/>
 			</div>
-		</>
+			</FeedbackProvider >
 	);
 }
 
-export default App;
+
+export default App
