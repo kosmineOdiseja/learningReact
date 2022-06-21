@@ -14,12 +14,10 @@ function App() {
 			<Header /> 
 			<div className='container'>
 				<FeedbackForm />
-				<FeedbackStats
-				/>
-				<FeedbackList
-				/>
+				<FeedbackStats />
+				<FeedbackList />
 			</div>
-			</FeedbackProvider >
+		</FeedbackProvider >
 	);
 }
 
