@@ -1,8 +1,14 @@
 # This app is a part of [Traversy Media course for React](https://www.udemy.com/course/react-front-to-back-2022/)
 
+# What I learned from this course? 
+
+##### 1) Components, Props, State
+##### 2) Forms and Validation  
+##### 3) Forms and real time validation  
+##### 4) Context API
 ## tech
 
-*[React Js](https://reactjs.org/)
+* [React Js](https://reactjs.org/)
 
 ## How to run this App? 
 
